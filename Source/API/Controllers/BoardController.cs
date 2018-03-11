@@ -8,10 +8,10 @@ namespace API.Controllers
     {
         private HeatingDbEntities db = new HeatingDbEntities();
 
-        public IHttpActionResult VerifyAndAddTempertureForBoard(int brdId, double temperature)
+        public IHttpActionResult VerifyAndAddTempertureForBoard(int boardId, double temperature)
         {
             // 1.vreau sa verific daca board id-ul exista
-            var board = db.Boards.FirstOrDefault(_ => _.Id.Equals(brdId));
+            var board = db.Boards.FirstOrDefault(_ => _.Id.Equals(boardId));
             if (board == null)
             {
                 return BadRequest("Incorrect board."); // Inseamna ca nu exista acel boardId
@@ -30,16 +30,34 @@ namespace API.Controllers
             }
             catch
             {
-                return Ok("Erroare server."); // Inseamna ca cava sa intamplat pe server
+                return BadRequest("Erroare server."); // Inseamna ca cava sa intamplat pe server
             }
 
             // 3.vreau sa verific daca trebuie pornita sau nu caldura
             if (temperature < board.MaxTemperature)
             {
-                return Ok(1); // Inseamna ca trebuie pornita calduara
+                // Inseamna ca trebuie pornita calduara
+                return Ok(1);
+                //return Ok(Json(new BoardTemperatureViewModel
+                //{
+                //    RaiseTemperature = true,
+                //    MaxTemperature = board.MaxTemperature
+                //}));
             }
 
-            return Ok(0); // Inseamna ca nu trebuie pornita calduara
+            // Inseamna ca nu trebuie pornita calduara
+            return Ok(0);
+            //return Ok(Json(new BoardTemperatureViewModel
+            //{
+            //    RaiseTemperature = false,
+            //    MaxTemperature = board.MaxTemperature
+            //}));
         }
+    }
+
+    public class BoardTemperatureViewModel
+    {
+        public bool RaiseTemperature { get; set; }
+        public double MaxTemperature { get; set; }
     }
 }
