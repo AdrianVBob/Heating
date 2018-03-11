@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#152fa6"
+    android:minWidth="25px"
+    android:minHeight="25px">
+<!--Current temperature-->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center">
+        <TextView
+            android:text="Current temperature: "
+            android:textStyle="bold"
+            android:textColor="#ffd54c"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="30dp"
+            android:layout_margin="5dp" />
+        <TextView
+            android:text="0"
+            android:textStyle="bold"
+            android:textColor="#ffd54c"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="50dp"
+            android:layout_margin="5dp"
+            android:id="@+id/state" />
+        <Button
+            android:text="Refresh "
+            android:background="@drawable/RoundShape"
+            android:textStyle="bold"
+            android:textColor="#ffd54c"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:layout_margin="5dp"
+            android:id="@+id/refresh" />
+    </LinearLayout>
+<!--Set temperature-->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:gravity="center">
+            <Button
+                android:text="set temperature: "
+                android:background="@drawable/RoundShape"
+                android:textStyle="bold"
+                android:textColor="#ffd54c"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:id="@+id/set" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:gravity="center">
+            <TextView
+                android:text="0"
+                android:textStyle="bold"
+                android:textColor="#ffd54c"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:id="@+id/setview" />
+        </LinearLayout>
+    </LinearLayout>
+<!--Temperature listing -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minWidth="25px"
+        android:minHeight="25px">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:gravity="center">
+            <TextView
+                android:text="Date"
+                android:textSize="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:id="@+id/datefield" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:gravity="center">
+            <TextView
+                android:text="Temperature"
+                android:textSize="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tmpfield"
+                android:textAlignment="textStart" />
+        </LinearLayout>
+    </LinearLayout>
+  <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        />
+</LinearLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="08faa9c6eae545acbeb8445086750e0b" Name="Diagram1">
+        <EntityTypeShape EntityType="HeatingDbModel.User" Width="1.5" PointX="3.125" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HeatingDbModel.value" Width="1.5" PointX="5.125" PointY="0.75" />
+        <EntityTypeShape EntityType="HeatingDbModel.BoardId" Width="1.5" PointX="0.875" PointY="0.75" />
+        <EntityTypeShape EntityType="HeatingDbModel.sysdiagram" Width="1.5" PointX="0.75" PointY="3.75" />
+        <AssociationConnector Association="HeatingDbModel.FK_BoardId_values" />
+        <AssociationConnector Association="HeatingDbModel.FK_Users_BoardId" />
+        <EntityTypeShape EntityType="HeatingDbModel.SetTemperature" Width="2.125" PointX="7.125" PointY="1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
