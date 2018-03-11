@@ -5,13 +5,13 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="08faa9c6eae545acbeb8445086750e0b" Name="Diagram1">
-        <EntityTypeShape EntityType="HeatingDbModel.User" Width="1.5" PointX="3.125" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HeatingDbModel.value" Width="1.5" PointX="5.125" PointY="0.75" />
-        <EntityTypeShape EntityType="HeatingDbModel.BoardId" Width="1.5" PointX="0.875" PointY="0.75" />
-        <EntityTypeShape EntityType="HeatingDbModel.sysdiagram" Width="1.5" PointX="0.75" PointY="3.75" />
-        <AssociationConnector Association="HeatingDbModel.FK_BoardId_values" />
-        <AssociationConnector Association="HeatingDbModel.FK_Users_BoardId" />
-        <EntityTypeShape EntityType="HeatingDbModel.SetTemperature" Width="2.125" PointX="7.125" PointY="1" />
+        <EntityTypeShape EntityType="HeatingDbModel.Board" Width="1.5" PointX="0.75" PointY="3.875" />
+        <EntityTypeShape EntityType="HeatingDbModel.BoardTemperature" Width="1.5" PointX="3" PointY="6.625" />
+        <EntityTypeShape EntityType="HeatingDbModel.User" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="HeatingDbModel.UserToBoard" Width="1.5" PointX="3" PointY="3.875" />
+        <AssociationConnector Association="HeatingDbModel.FK_BoardTemperature_Board" />
+        <AssociationConnector Association="HeatingDbModel.FK_UserToBoards_Boards" />
+        <AssociationConnector Association="HeatingDbModel.FK_UserToBoards_Users" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

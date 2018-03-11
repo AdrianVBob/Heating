@@ -14,11 +14,19 @@ namespace API
     
     public partial class User
     {
-        public int id { get; set; }
-        public string username { get; set; }
-        public string password { get; set; }
-        public int brd_id { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public User()
+        {
+            this.UserToBoards = new HashSet<UserToBoard>();
+        }
     
-        public virtual BoardId BoardId { get; set; }
+        public int Id { get; set; }
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserToBoard> UserToBoards { get; set; }
     }
 }

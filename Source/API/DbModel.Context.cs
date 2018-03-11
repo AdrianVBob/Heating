@@ -25,10 +25,9 @@ namespace API
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Board> Boards { get; set; }
+        public virtual DbSet<BoardTemperature> BoardTemperatures { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<value> values { get; set; }
-        public virtual DbSet<BoardId> BoardIds { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<SetTemperature> SetTemperatures { get; set; }
+        public virtual DbSet<UserToBoard> UserToBoards { get; set; }
     }
 }

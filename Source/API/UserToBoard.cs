@@ -12,10 +12,13 @@ namespace API
     using System;
     using System.Collections.Generic;
     
-    public partial class SetTemperature
+    public partial class UserToBoard
     {
-        public int id { get; set; }
-        public int brd_Id { get; set; }
-        public Nullable<decimal> setTemperature1 { get; set; }
+        public int Id { get; set; }
+        public int IdUser { get; set; }
+        public int IdBoard { get; set; }
+    
+        public virtual Board Board { get; set; }
+        public virtual User User { get; set; }
     }
 }
