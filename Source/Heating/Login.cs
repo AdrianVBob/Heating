@@ -13,10 +13,10 @@ using Android.Views.Animations;
 using Twilio.Clients;
 using RestSharp;
 using Newtonsoft.Json;
-
+//[Activity (Label = "YourActivityName",Theme = "@android:style/Theme.NoTitleBar")]
 namespace Heating
 {
-    [Activity(Label = "Login", MainLauncher = true)]
+    [Activity(Label = "Login", MainLauncher = true, Theme = "@android:style/Theme.NoTitleBar")]
     public class Login : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)

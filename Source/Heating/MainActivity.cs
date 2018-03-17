@@ -4,7 +4,7 @@ using Android.OS;
 
 namespace Heating
 {
-    [Activity(Label = "Heating", Icon = "@drawable/icon")]
+    [Activity(Label = "Heating", Icon = "@drawable/icon", Theme = "@android:style/Theme.NoTitleBar")]
     public class MainActivity : Activity
     {
         protected override void OnCreate(Bundle bundle)

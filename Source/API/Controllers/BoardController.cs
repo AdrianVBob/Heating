@@ -6,8 +6,16 @@ namespace API.Controllers
 {
     public class BoardController : ApiController
     {
+
         private HeatingDbEntities db = new HeatingDbEntities();
 
+        public BoardController()
+        {
+
+        }
+
+        [ActionName("VerifyAndAddTempertureForBoard")]
+        [HttpGet]
         public IHttpActionResult VerifyAndAddTempertureForBoard(int boardId, double temperature)
         {
             // 1.vreau sa verific daca board id-ul exista
@@ -54,6 +62,8 @@ namespace API.Controllers
             //}));
         }
     }
+
+
 
     public class BoardTemperatureViewModel
     {
