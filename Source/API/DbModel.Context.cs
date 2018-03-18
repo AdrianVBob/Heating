@@ -29,5 +29,6 @@ namespace API
         public virtual DbSet<BoardTemperature> BoardTemperatures { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<UserToBoard> UserToBoards { get; set; }
+        public virtual DbSet<SetMaxTemperature> SetMaxTemperatures { get; set; }
     }
 }

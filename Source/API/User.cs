@@ -18,6 +18,7 @@ namespace API
         public User()
         {
             this.UserToBoards = new HashSet<UserToBoard>();
+            this.SetMaxTemperatures = new HashSet<SetMaxTemperature>();
         }
     
         public int Id { get; set; }
@@ -28,5 +29,7 @@ namespace API
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserToBoard> UserToBoards { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SetMaxTemperature> SetMaxTemperatures { get; set; }
     }
 }

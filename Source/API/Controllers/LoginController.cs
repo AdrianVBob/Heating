@@ -7,6 +7,8 @@ namespace API.Controllers
     {
         private HeatingDbEntities db = new HeatingDbEntities();
 
+        [ActionName("Login")]
+        [HttpGet]
         public IHttpActionResult Login(string username, string password)
         {
             return db.Users.FirstOrDefault(u => u.UserName.Equals(username) && u.Password.Equals(password)) != null ? Ok("0") : Ok("1");

@@ -12,6 +12,7 @@ const char* pwd = "12345678";
 float h;
 float t;
 HTTPClient http;
+char id = 1;
 
 DHT dht(DHTPIN, DHTTYPE);
 WiFiServer server(80);
@@ -54,8 +55,10 @@ if(isnan(h) || isnan(t)) {
    Serial.println("humidity: "+String(h));
    WiFiClient client;
 Serial.println("Call the endpoint");
-http.begin("http://chsapi.azurewebsites.net/api/values/addToDb?t="+String(t)+
-"&h="+String(h)+"&user=adrian&p=12345");
+//http.begin("http://chsapi.azurewebsites.net/api/values/addToDb?t="+String(t)+"&h="+String(h)+"&user=adrian&p=12345");
+
+http.begin("http://localhost:8080/api/Board/VerifyAndAddTempertureForBoard?boardId="+String(id)+"&temperature="String(t)")
+
 int httpCode=http.GET();
 if(httpCode) {
    if(httpCode==200)

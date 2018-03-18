@@ -8,6 +8,10 @@ namespace API.Controllers
     {
         private HeatingDbEntities dbContext = new HeatingDbEntities();
 
+
+
+        [ActionName("AddNewUserAndAssignToBoard")]
+        [HttpGet]
         public int AddNewUserAndAssignTobBoard(string username, string password, int boardId)
         {
             // Verificam ca exist un board care are id egaul cu valoarea parametrului boardId

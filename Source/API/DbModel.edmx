@@ -22,6 +22,14 @@
           <Property Name="TemperatureValue" Type="float" Nullable="false" />
           <Property Name="Date" Type="datetime" Nullable="false" />
         </EntityType>
+        <EntityType Name="SetMaxTemperature">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="MaxTemperature" Type="float" />
+        </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="Id" />
@@ -52,6 +60,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_MaxTemperature_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="SetMaxTemperature" Type="Self.SetMaxTemperature" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SetMaxTemperature">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_UserToBoards_Boards">
           <End Role="Boards" Type="Self.Boards" Multiplicity="1" />
           <End Role="UserToBoards" Type="Self.UserToBoards" Multiplicity="*" />
@@ -79,11 +99,16 @@
         <EntityContainer Name="HeatingDbModelStoreContainer">
           <EntitySet Name="Boards" EntityType="Self.Boards" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BoardTemperatures" EntityType="Self.BoardTemperatures" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SetMaxTemperature" EntityType="Self.SetMaxTemperature" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserToBoards" EntityType="Self.UserToBoards" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_BoardTemperature_Board" Association="Self.FK_BoardTemperature_Board">
             <End Role="Boards" EntitySet="Boards" />
             <End Role="BoardTemperatures" EntitySet="BoardTemperatures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaxTemperature_Users" Association="Self.FK_MaxTemperature_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="SetMaxTemperature" EntitySet="SetMaxTemperature" />
           </AssociationSet>
           <AssociationSet Name="FK_UserToBoards_Boards" Association="Self.FK_UserToBoards_Boards">
             <End Role="Boards" EntitySet="Boards" />
@@ -114,6 +139,11 @@
           <AssociationSet Name="FK_UserToBoards_Users" Association="HeatingDbModel.FK_UserToBoards_Users">
             <End Role="User" EntitySet="Users" />
             <End Role="UserToBoard" EntitySet="UserToBoards" />
+          </AssociationSet>
+          <EntitySet Name="SetMaxTemperatures" EntityType="HeatingDbModel.SetMaxTemperature" />
+          <AssociationSet Name="FK_MaxTemperature_Users" Association="HeatingDbModel.FK_MaxTemperature_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="SetMaxTemperature" EntitySet="SetMaxTemperatures" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Board">
@@ -146,6 +176,7 @@
           <Property Name="FirstName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="LastName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="UserToBoards" Relationship="HeatingDbModel.FK_UserToBoards_Users" FromRole="User" ToRole="UserToBoard" />
+          <NavigationProperty Name="SetMaxTemperatures" Relationship="HeatingDbModel.FK_MaxTemperature_Users" FromRole="User" ToRole="SetMaxTemperature" />
         </EntityType>
         <EntityType Name="UserToBoard">
           <Key>
@@ -193,6 +224,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="SetMaxTemperature">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="MaxTemperature" Type="Decimal" />
+          <NavigationProperty Name="User" Relationship="HeatingDbModel.FK_MaxTemperature_Users" FromRole="SetMaxTemperature" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_MaxTemperature_Users">
+          <End Type="HeatingDbModel.User" Role="User" Multiplicity="1" />
+          <End Type="HeatingDbModel.SetMaxTemperature" Role="SetMaxTemperature" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SetMaxTemperature">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -234,6 +286,15 @@
               <MappingFragment StoreEntitySet="UserToBoards">
                 <ScalarProperty Name="IdBoard" ColumnName="IdBoard" />
                 <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SetMaxTemperatures">
+            <EntityTypeMapping TypeName="HeatingDbModel.SetMaxTemperature">
+              <MappingFragment StoreEntitySet="SetMaxTemperature">
+                <ScalarProperty Name="MaxTemperature" ColumnName="MaxTemperature" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

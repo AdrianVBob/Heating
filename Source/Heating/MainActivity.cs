@@ -11,6 +11,10 @@ namespace Heating
         {
             base.OnCreate(bundle);
 
+            var = state = FindViewById<EditText>(Resource.Id.userName);
+
+
+
             // Set our view from the "main" layout resource
             // SetContentView (Resource.Layout.Main);
         }

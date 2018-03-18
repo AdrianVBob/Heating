@@ -12,6 +12,8 @@
         <AssociationConnector Association="HeatingDbModel.FK_BoardTemperature_Board" />
         <AssociationConnector Association="HeatingDbModel.FK_UserToBoards_Boards" />
         <AssociationConnector Association="HeatingDbModel.FK_UserToBoards_Users" />
+        <EntityTypeShape EntityType="HeatingDbModel.SetMaxTemperature" Width="1.5" PointX="3" PointY="1" />
+        <AssociationConnector Association="HeatingDbModel.FK_MaxTemperature_Users" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

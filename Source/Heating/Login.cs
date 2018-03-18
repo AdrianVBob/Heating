@@ -24,7 +24,7 @@ namespace Heating
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Login);
 
-            var user = FindViewById<EditText>(Resource.Id.userName);
+            var user = FindViewById<EditText>(Resource.Login.userName);
             var password = FindViewById<EditText>(Resource.Id.password);
             var log = FindViewById<Button>(Resource.Id.logIn);
             var crt = FindViewById<Button>(Resource.Id.create);
@@ -38,8 +38,8 @@ namespace Heating
                  Animation anim = AnimationUtils.LoadAnimation(ApplicationContext, Resource.Animation.fadeIn);
                  log.StartAnimation(anim);
 
-                 var client = new RestClient("http://");
-                 var request = new RestRequest("api/Login//fbhvufdh");
+                 var client = new RestClient("http://localhost:8080");
+                 var request = new RestRequest("api/Login/?username=" + user + "&password=" + password);
                  var result = client.Execute(request);
                  string res = result.Content;
                  //  res = JsonConverter.DeserializeObject<System.Collections.Generic.>(result.Content);
@@ -52,6 +52,7 @@ namespace Heating
                      StartActivity(intent);
                      Finish();
                  }
+                 return; 
 
                 //   var client = new RestClient("http://chsapi.azurewebsites.net");
                // var restquest = new RestrictionResults
