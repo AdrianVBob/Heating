@@ -16,7 +16,7 @@ namespace API
     {
         public int Id { get; set; }
         public int UserId { get; set; }
-        public Nullable<float> MaxTemperature { get; set; }
+        public Nullable<double> MaxTemperature { get; set; }
     
         public virtual User User { get; set; }
     }

@@ -7,11 +7,12 @@ namespace Heating
     [Activity(Label = "Heating", Icon = "@drawable/icon", Theme = "@android:style/Theme.NoTitleBar")]
     public class MainActivity : Activity
     {
-        protected override void OnCreate(Bundle bundle)
+        protected override void OnCreate(Bundle savedInstanceState)
         {
-            base.OnCreate(bundle);
+            base.OnCreate(savedInstanceState);
+            SetContentView(Resource.Layout.Main);
 
-            var = state = FindViewById<EditText>(Resource.Id.userName);
+            var state = FindViewById<EditText>(Resource.Id.userName);
 
 
 

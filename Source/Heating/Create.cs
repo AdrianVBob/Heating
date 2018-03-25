@@ -14,7 +14,7 @@ using Android.Views.Animations;
 
 namespace Heating
 {
-    [Activity(Label = "Create", Theme = "@android:style/Theme.NoTitleBar")]
+    [Activity(Label = "Create")]
     public class Create : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)

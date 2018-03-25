@@ -230,7 +230,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
-          <Property Name="MaxTemperature" Type="Decimal" />
+          <Property Name="MaxTemperature" Type="Double" />
           <NavigationProperty Name="User" Relationship="HeatingDbModel.FK_MaxTemperature_Users" FromRole="SetMaxTemperature" ToRole="User" />
         </EntityType>
         <Association Name="FK_MaxTemperature_Users">
